@@ -1,0 +1,16 @@
+.list{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    width: 500px;
+    background-color: green;
+    display: flex;
+    flex-flow: row wrap;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.delete{
+    
+    margin-left: 40px;
+}

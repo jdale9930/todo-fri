@@ -1,20 +1,37 @@
 import React, {useState} from "react"
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom"
 
 const List = (props) => {
+    const [isHovering, setIsHovering] = useState(false)
 
-    let buttoncheck = true;
-    function button(e)
-    {
-        console.log(e);
-        e.target.innerHTML = e.target.innerHTML + "<button>Delete</button>"
-    }
     return(
-        <div onMouseOver={ e => {
-            e.target.innerHTML = `${props.todo.name} - ${props.todo.title}` + "<button>Delete</button>"
-        }}>
-            
-            {props.todo.name} - {props.todo.title}
-            {/* {buttoncheck = 1 && <button>Delete</button>} */}
+        <div onMouseEnter={ e => {
+            setIsHovering(true);
+        }}
+        onMouseLeave={e=> {
+            setIsHovering(false);
+        }} className = "list">           
+            {props.todo.id} - {props.todo.name} - {props.todo.title}
+            {isHovering === true &&
+            <button className = "delete"
+            onClick = {(e) => {
+                let newArray =[]
+                props.todoArray.map((t) =>{
+                    {t.id != props.todo.id && 
+                    newArray.push(t)}
+                    console.log(newArray)
+                })
+                newArray.map((n) => {
+                    if(n.id > props.todo.id)
+                    {
+                        n.id = n.id - 1;
+                    }
+                    console.log(newArray)
+                })
+                props.setTodo(newArray)
+            }}
+            >Delete</button>
+            }
         </div>
     )
 }
