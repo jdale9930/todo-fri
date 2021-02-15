@@ -11,7 +11,9 @@ const List = (props) => {
         onMouseLeave={e=> {
             setIsHovering(false);
         }} className = "list">           
-            {props.todo.id} - {props.todo.name} - {props.todo.title}
+            <div style = {{textAlign:"left", width: "80%"}}>
+                {props.todo.id}. {props.todo.name} - {props.todo.title}
+            </div>
             {isHovering === true &&
             <button className = "delete"
             onClick = {(e) => {
@@ -31,7 +33,7 @@ const List = (props) => {
                 props.setTodo(newArray)
             }}
             >Delete</button>
-            }
+        }
         </div>
     )
 }

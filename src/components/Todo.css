@@ -1,16 +1,67 @@
 .list{
-    text-align: center;
+    text-align: right;
     height: 40px;
     line-height: 40px;
     width: 500px;
-    background-color: green;
+    background: rgb(255,255,254);
+    background: linear-gradient(90deg, rgba(255,255,254,1) 26%, rgba(191,194,194,1) 82%);
     display: flex;
     flex-flow: row wrap;
+    justify-content: right;
     border: 1px solid black;
     margin: auto;
+    padding-left: 10px;
+    border-radius: 5px;
 }
 
 .delete{
-    
-    margin-left: 40px;
+    margin-left: 10px;
+    height: 90%;
+    margin-top: 2px;
 }
+
+main{
+    height: 100%;
+    
+}
+
+.removeByInputText{
+    margin-left: 25px;
+}
+
+.removeByInputButton{
+    margin-left: 5px;
+}
+
+.inputDiv{
+    margin: auto;
+    text-align: left;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 7px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    background: rgb(230,230,103);
+    background: linear-gradient(90deg, rgba(230,230,103,1) 16%, rgba(255,250,185,1) 42%, rgba(255,234,91,1) 88%);
+}
+
+/* .addDiv{
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    border: solid 2px black;
+}
+
+.topDiv{
+    display: flex;
+    flex-flow: row wrap;
+    height: 100px;
+}
+
+.removeDiv
+{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+} */

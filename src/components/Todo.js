@@ -20,7 +20,9 @@ const [todo, setTodo] = useState([
 const [lastTodo, setLastTodo] = useState("")
 let newTodo = {id: 0, name: "", title: ""}
     return(
-        <div>
+        <main>
+            <div className = "topDiv">
+            <div className = "addDiv">
             <input type = "text" id = "name" placeholder = "Name"
             onChange = {(e) => setName(e.target.value)} value = {name}
             ></input>
@@ -39,27 +41,27 @@ let newTodo = {id: 0, name: "", title: ""}
                     return [...oldTodos, newTodo]
                 }
                 )
-                //setLT("WHY")
                 setTitle("")
                 setName("")
                 }
                 console.log(lastTodo)
             }}
             >Add to List</button>
-            <br></br>
-            <RemoveByInput 
-            input = "Name" name = {removeByName} setName = {setRemoveByName} todo = {todo}/>
-            <RemoveByInput 
-            input = "Name" name = {removeByName} setName = {setRemoveByName} todo = {todo}/>
-            <div>Remove by Title: <input type = "text" placeholder ="Remove by Title"/>
-            <button>Remove</button>
+            
             </div>
+            <div className = "removeDiv">
+            <RemoveByInput 
+            inputType = "Name"  input = {removeByName} setInput = {setRemoveByName} todo = {todo} setTodo = {setTodo}/>
+            <RemoveByInput 
+            inputType = "Title" input = {removeByTitle} setInput = {setRemoveByTitle} todo = {todo} setTodo = {setTodo}/>
+            </div>
+            </div>
+            <LastInput last = {lastTodo} key = {1}></LastInput>
             {todo.length > 0 &&
                 todo.map((t) =>
                 <List todoArray = {todo} setTodo = {setTodo} todo = {t} key ={t.id}></List>)
             }
-            <LastInput last = {lastTodo} key = {1}></LastInput>
-        </div>
+        </main>
     )
 }
 export default Todo;
