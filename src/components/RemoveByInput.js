@@ -14,14 +14,8 @@ const RemoveByInput = (props) => {
             <button
             onClick = {(() => {
                 let newArray = []
-                let compare = ""
                 props.todo.map((t) => {
-                    {props.inputType == "Name" ?
-                        compare = t.name.toLowerCase()
-                        :
-                        compare = t.title.toLowerCase()
-                    }
-                    {compare != props.input.toLowerCase() &&
+                    {t[`${props.inputType.toLowerCase()}`].toLowerCase() != props.input.toLowerCase() &&
                     newArray.push(t)
                     console.log(newArray)
                     let counter = 1;

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import List from "./List"
 import "./Todo.css"
 import LastInput from "./LastInput"
@@ -16,11 +16,21 @@ const [todo, setTodo] = useState([
     {id: 3 ,name: "Amy" ,title: "Walk the Dog"},
     {id: 4 ,name: "Emma" ,title: "Work"}
 ])
+const [timer, setTimer] = useState(0);
+
+useEffect(()=>{
+    let intervalRef = setInterval(()=>{
+        setTimer(timer + 1)
+    }, 1000);
+
+    return() => clearInterval(intervalRef)
+}, [timer])
 
 const [lastTodo, setLastTodo] = useState("")
 let newTodo = {id: 0, name: "", title: ""}
     return(
         <main>
+            <div>{timer}</div>
             <div className = "topDiv">
             <div className = "addDiv">
             <input type = "text" id = "name" placeholder = "Name"
